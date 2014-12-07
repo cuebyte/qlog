@@ -3,7 +3,7 @@ qlog
 
 Usage:
 ```Go
-log, err := InitLogger(TRAC)
+log, err := InitLogger("TRAC")
 if err != nil {
     log.Fatal(err)
 }

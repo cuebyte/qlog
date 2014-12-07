@@ -7,7 +7,7 @@ import (
 )
 
 func TestFile(t *testing.T) {
-	l, err := InitLogger(TRAC)
+	l, err := InitLogger("TRAC")
 	if err != nil {
 		log.Fatal(err)
 	}

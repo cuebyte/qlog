@@ -75,6 +75,16 @@ type Logger struct {
 }
 
 func InitLogger(level int, paths ...string) (Logger, error) {
+	level_num := -1
+	for i, v := range lv {
+		if v == level {
+			level_num = i
+			break
+		}
+	}
+	if level_num < 0 {
+		return Logger{}, fmt.Errorf("Wrong Level")
+	}
 	log := &Logger{Level: level}
 	log.Writers = make([]LogWriter, 0)
 	// read config
