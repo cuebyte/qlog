@@ -20,6 +20,7 @@ func (m *MutexWriter) Write(b []byte) (int, error) {
 	return m.fd.Write(b)
 }
 
+// implament
 type FileLog struct {
 	*log.Logger
 	writer *MutexWriter
@@ -64,7 +65,6 @@ func (this *FileLog) Write(msg *Message) {
 		return
 	}
 	var err error
-	//this.writer.fd, err = os.OpenFile(this.getRealFilename(), os.O_WRONLY|os.O_APPEND, 0)
 	n, isNew := this.getRealFilename()
 	if isNew {
 		this.Close()
@@ -111,12 +111,11 @@ func (this *FileLog) getLastFile() (string, string) {
 	if this.Rotate {
 		lastFile = fn + fmt.Sprintf("_%03d", 0)
 		newFile = lastFile
-		for i := 1; isFileExist(newFile + this.Suffix); i++ { // i:=1, sub a loop
+		for i := 1; isFileExist(newFile + this.Suffix); i++ {
 			lastFile = newFile
 			newFile = fn + fmt.Sprintf("_%03d", i)
 		}
 	}
-	//fmt.Println(lastFile, newFile)
 	return lastFile + this.Suffix, newFile + this.Suffix
 }
 

@@ -13,7 +13,7 @@ type Animal struct {
 
 func TestM2S(t *testing.T) {
 	var targ Animal
-	m := map[string]string{"Name": "Bill", "Order": "2", "Yes": "4a"}
+	m := map[string]string{"Name": "Bill", "Order": "2", "Yes": "True"}
 	Map2Struct(m, &targ)
 	fmt.Printf("%v", targ)
 }

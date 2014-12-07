@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"testing"
-	//"time"
 )
 
 func TestFile(t *testing.T) {

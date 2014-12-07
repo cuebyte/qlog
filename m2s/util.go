@@ -39,7 +39,7 @@ func Map2Struct(m map[string]string, targ interface{}) {
 			case "float64":
 				data, err := strconv.ParseFloat(mv, 64)
 				if err != nil {
-					panic("Config wrong type, should be int")
+					panic("Config wrong type, should be float")
 				}
 				item.SetFloat(data)
 			case "bool":
